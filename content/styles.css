@@ -1,0 +1,280 @@
+/*
+  Reddit Markdown Toolbar Styles
+
+  Notes:
+  - This file is injected by Chrome as a content-script stylesheet.
+  - It does NOT apply inside shadow roots. When the toolbar is injected into a
+    shadow-root composer, `content/toolbar.js` injects an equivalent minimal
+    stylesheet string (`SHADOW_CSS`) into that shadow root.
+*/
+
+.rmt-toolbar {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    background: transparent;
+    border: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin-bottom: 0;
+    z-index: 1;
+    width: 100%;
+    box-sizing: border-box;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+.rmt-toolbar.rmt-in-header {
+    padding: 0;
+    gap: 18px;
+    overflow: visible;
+}
+
+.rmt-actions-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-right: auto;
+    min-width: 0;
+    flex-wrap: nowrap;
+}
+
+.rmt-toolbar.rmt-in-actions {
+    padding: 0;
+    gap: 18px;
+    overflow: visible;
+    width: auto;
+    min-width: 0;
+}
+
+.rmt-toolbar.rmt-collapsed {
+    display: none !important;
+}
+
+.rmt-toolbar.rmt-compact {
+    padding: 4px;
+    gap: 8px;
+}
+
+.rmt-btn {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    height: 32px;
+    padding: 0 8px;
+    background: transparent;
+    border: 0;
+    border-radius: 9999px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-neutral-content, rgba(255, 255, 255, 0.72));
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: none;
+    flex-shrink: 0;
+    appearance: none;
+}
+
+.rmt-btn svg {
+    display: block;
+}
+
+@media (prefers-color-scheme: dark) {
+    .rmt-btn {
+        color: var(--color-neutral-content, #d7dadc);
+    }
+}
+
+.rmt-btn:hover {
+    background: var(--color-neutral-background-hover, rgba(255, 255, 255, 0.08));
+}
+
+@media (prefers-color-scheme: light) {
+    .rmt-btn {
+        color: var(--color-neutral-content-strong, rgba(0, 0, 0, 0.72));
+    }
+
+    .rmt-btn:hover {
+        background: var(--color-neutral-background-hover, rgba(0, 0, 0, 0.06));
+    }
+}
+
+.rmt-btn:active {
+    transform: scale(0.96);
+}
+
+.rmt-compact .rmt-btn {
+    min-width: 28px;
+    height: 28px;
+    padding: 0 6px;
+    font-size: 13px;
+}
+
+.rmt-separator {
+    width: 1px;
+    height: 18px;
+    background: var(--color-neutral-border, rgba(255, 255, 255, 0.16));
+    margin: 0 2px;
+    flex-shrink: 0;
+}
+
+@media (prefers-color-scheme: light) {
+    .rmt-separator {
+        background: var(--color-neutral-border-weak, rgba(0, 0, 0, 0.12));
+    }
+}
+
+.rmt-toggle {
+    position: static;
+    width: 44px;
+    height: 44px;
+    border-radius: 9999px;
+    appearance: none;
+    border: 0;
+    background: var(--color-neutral-background, rgba(255, 255, 255, 0.10));
+    color: var(--color-neutral-content, rgba(255, 255, 255, 0.72));
+    font-weight: 600;
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex: 0 0 auto;
+}
+
+.rmt-toggle[aria-pressed="true"] {
+    background: var(--color-neutral-background, rgba(255, 255, 255, 0.14));
+}
+
+.rmt-toggle:hover {
+    background: var(--color-neutral-background-hover, rgba(255, 255, 255, 0.12));
+}
+
+.rmt-toggle:active {
+    transform: scale(0.98);
+}
+
+@media (prefers-color-scheme: light) {
+    .rmt-toggle {
+        background: var(--color-neutral-background-weak, rgba(0, 0, 0, 0.06));
+        color: var(--color-neutral-content-strong, rgba(0, 0, 0, 0.72));
+    }
+
+    .rmt-toggle[aria-pressed="true"] {
+        background: var(--color-neutral-background-hover, rgba(0, 0, 0, 0.10));
+    }
+
+    .rmt-toggle:hover {
+        background: var(--color-neutral-background-hover, rgba(0, 0, 0, 0.10));
+    }
+}
+
+/* Modal styles */
+.rmt-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
+
+.rmt-modal {
+    background: white;
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    min-width: 400px;
+    max-width: 90%;
+}
+
+@media (prefers-color-scheme: dark) {
+    .rmt-modal {
+        background: #1a1a1b;
+        color: #d7dadc;
+    }
+}
+
+.rmt-modal-label {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.rmt-modal-input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: inherit;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: dark) {
+    .rmt-modal-input {
+        background: #272729;
+        border-color: #343536;
+        color: #d7dadc;
+    }
+}
+
+.rmt-modal-input:focus {
+    outline: none;
+    border-color: #0079d3;
+}
+
+.rmt-modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.rmt-modal-btn {
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: white;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+@media (prefers-color-scheme: dark) {
+    .rmt-modal-btn {
+        background: #272729;
+        border-color: #343536;
+        color: #d7dadc;
+    }
+}
+
+.rmt-modal-btn:hover {
+    background: #f6f7f8;
+}
+
+@media (prefers-color-scheme: dark) {
+    .rmt-modal-btn:hover {
+        background: #343536;
+    }
+}
+
+.rmt-modal-btn-primary {
+    background: #0079d3;
+    color: white;
+    border-color: #0079d3;
+}
+
+.rmt-modal-btn-primary:hover {
+    background: #0060a8;
+}

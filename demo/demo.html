@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Reddit Markdown Toolbar - Demo</title>
+    <link rel="stylesheet" href="../content/styles.css" />
+    <link rel="stylesheet" href="./demo.css" />
+  </head>
+  <body>
+    <main class="demo">
+      <header class="demo-header">
+        <h1>Reddit Markdown Toolbar</h1>
+        <p class="demo-subtitle">Demo page for quick manual testing (no Reddit DOM dependency).</p>
+      </header>
+
+      <section class="demo-card">
+        <p class="demo-help">
+          Try: select text then click toolbar buttons. Heading uses your default level; Shift-click Heading to pick a level.
+        </p>
+        <textarea id="demoTextarea" class="demo-textarea" rows="10" spellcheck="false">This is **bold**, *italic*, and `code`.
+
+Select multiple lines and try Quote or lists.
+
+Link: select a URL and press Ctrl+K.
+Spoiler: select text and press Ctrl+Shift+S.</textarea>
+      </section>
+    </main>
+
+    <script src="../content/markdown.js"></script>
+    <script src="../content/toolbar.js"></script>
+    <script src="./demo.js"></script>
+  </body>
+</html>

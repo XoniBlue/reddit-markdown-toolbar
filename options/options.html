@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reddit Markdown Toolbar - Options</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Reddit Markdown Toolbar</h1>
+      <p class="subtitle">Customize your formatting toolbar</p>
+    </header>
+
+    <main>
+      <section class="section">
+        <h2>General Settings</h2>
+
+        <div class="setting">
+          <label class="checkbox-label">
+            <input type="checkbox" id="enableOldReddit">
+            <span>Enable on old.reddit.com</span>
+          </label>
+          <p class="help-text">Enable the toolbar on old Reddit. May have limited compatibility.</p>
+        </div>
+
+        <div class="setting">
+          <label class="checkbox-label">
+            <input type="checkbox" id="compactMode">
+            <span>Compact toolbar</span>
+          </label>
+          <p class="help-text">Use smaller buttons and reduced padding.</p>
+        </div>
+
+        <div class="setting">
+          <label class="checkbox-label">
+            <input type="checkbox" id="rememberCollapsed">
+            <span>Remember collapsed state</span>
+          </label>
+          <p class="help-text">Persist the toolbar's collapsed/expanded state across sessions.</p>
+        </div>
+
+        <div class="setting">
+          <label class="checkbox-label">
+            <input type="checkbox" id="startCollapsed">
+            <span>Start collapsed</span>
+          </label>
+          <p class="help-text">Start with the toolbar collapsed (only useful when remembered).</p>
+        </div>
+
+        <div class="setting">
+          <label class="checkbox-label">
+            <input type="checkbox" id="debugLogging">
+            <span>Debug logging</span>
+          </label>
+          <p class="help-text">Log extra information to the DevTools console.</p>
+        </div>
+
+        <div class="setting">
+          <label for="headingLevel"><strong>Default heading level</strong></label>
+          <select id="headingLevel">
+            <option value="1">H1</option>
+            <option value="2">H2</option>
+            <option value="3">H3</option>
+            <option value="4">H4</option>
+            <option value="5">H5</option>
+            <option value="6">H6</option>
+          </select>
+          <p class="help-text">Used for the heading button and Ctrl+Shift+H. Shift-click Heading to choose a level.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Toolbar Buttons</h2>
+        <p class="help-text">Disable buttons you don't use:</p>
+
+        <div class="button-grid">
+          <label class="checkbox-label">
+            <input type="checkbox" class="button-toggle" data-button="bold">
+            <span>Bold</span>
+          </label>
+
+          <label class="checkbox-label">
+            <input type="checkbox" class="button-toggle" data-button="italic">
+            <span>Italic</span>
+          </label>
+
+          <label class="checkbox-label">
+            <input type="checkbox" class="button-toggle" data-button="strikethrough">
+            <span>Strikethrough</span>
+          </label>
+
+          <label class="checkbox-label">
+            <input type="checkbox" class="button-toggle" data-button="code">
+            <span>Inline Code</span>
+          </label>
+
+          <label class="checkbox-label">
+            <input type="checkbox" class="button-toggle" data-button="codeblock">
+            <span>Code Block</span>
+          </label>
+
+          <label class="checkbox-label">
+            <input type="checkbox" class="button-toggle" data-button="link">
+            <span>Link</span>
+          </label>
+
+          <label class="checkbox-label">
+            <input type="checkbox" class="button-toggle" data-button="quote">
+            <span>Quote</span>
+          </label>
+
+          <label class="checkbox-label">
+            <input type="checkbox" class="button-toggle" data-button="spoiler">
+            <span>Spoiler</span>
+          </label>
+
+          <label class="checkbox-label">
+            <input type="checkbox" class="button-toggle" data-button="bullet">
+            <span>Bullet List</span>
+          </label>
+
+          <label class="checkbox-label">
+            <input type="checkbox" class="button-toggle" data-button="numbered">
+            <span>Numbered List</span>
+          </label>
+
+          <label class="checkbox-label">
+            <input type="checkbox" class="button-toggle" data-button="table">
+            <span>Table</span>
+          </label>
+
+          <label class="checkbox-label">
+            <input type="checkbox" class="button-toggle" data-button="heading">
+            <span>Heading</span>
+          </label>
+
+          <label class="checkbox-label">
+            <input type="checkbox" class="button-toggle" data-button="hr">
+            <span>Horizontal Rule</span>
+          </label>
+
+          <label class="checkbox-label">
+            <input type="checkbox" class="button-toggle" data-button="clear">
+            <span>Clear Formatting</span>
+          </label>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Custom Snippets</h2>
+        <p class="help-text">Add up to 3 custom buttons that insert templates. Use <code>{selection}</code> to include selected text.</p>
+
+        <div class="snippet-grid">
+          <div class="snippet-card">
+            <div class="snippet-row">
+              <label class="checkbox-label">
+                <input type="checkbox" id="snippetEnabled0">
+                <span>Enable</span>
+              </label>
+            </div>
+            <label class="snippet-label">Button label</label>
+            <input type="text" id="snippetLabel0" placeholder="e.g. Mod" />
+            <label class="snippet-label">Template</label>
+            <textarea id="snippetTemplate0" rows="4" placeholder="Template text..."></textarea>
+          </div>
+
+          <div class="snippet-card">
+            <div class="snippet-row">
+              <label class="checkbox-label">
+                <input type="checkbox" id="snippetEnabled1">
+                <span>Enable</span>
+              </label>
+            </div>
+            <label class="snippet-label">Button label</label>
+            <input type="text" id="snippetLabel1" placeholder="e.g. Code" />
+            <label class="snippet-label">Template</label>
+            <textarea id="snippetTemplate1" rows="4" placeholder="```lang\n{selection}\n```"></textarea>
+          </div>
+
+          <div class="snippet-card">
+            <div class="snippet-row">
+              <label class="checkbox-label">
+                <input type="checkbox" id="snippetEnabled2">
+                <span>Enable</span>
+              </label>
+            </div>
+            <label class="snippet-label">Button label</label>
+            <input type="text" id="snippetLabel2" placeholder="e.g. TL;DR" />
+            <label class="snippet-label">Template</label>
+            <textarea id="snippetTemplate2" rows="4" placeholder="TL;DR: {selection}"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <div class="actions">
+        <button id="save" class="btn btn-primary">Save Settings</button>
+        <button id="reset" class="btn btn-secondary">Reset to Defaults</button>
+      </div>
+
+      <div id="status" class="status"></div>
+    </main>
+
+    <footer>
+      <p>Version 0.1.0</p>
+    </footer>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

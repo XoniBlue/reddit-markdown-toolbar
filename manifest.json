@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Reddit Markdown Toolbar",
+  "version": "0.1.0",
+  "description": "Adds a formatting toolbar to Reddit's Markdown editor",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://www.reddit.com/*",
+    "https://old.reddit.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.reddit.com/*",
+        "https://old.reddit.com/*"
+      ],
+      "js": [
+        "content/markdown.js",
+        "content/toolbar.js",
+        "content/detector.js",
+        "content/content.js"
+      ],
+      "css": [
+        "content/styles.css"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "options_page": "options/options.html"
+}

@@ -1,0 +1,16 @@
+# macOS
+.DS_Store
+
+# Node (kept out of the repo even if present locally)
+node_modules/
+npm-debug.log*
+
+# Editor / tooling
+.vscode/
+.idea/
+
+# Build artifacts (future-proof)
+dist/
+build/
+out/
+
